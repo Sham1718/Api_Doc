@@ -1,0 +1,22 @@
+# secrets
+.env
+
+# java
+backend/target/
+*.class
+
+# node
+frontend/node_modules/
+frontend/dist/
+
+# python
+ai-service/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# editors / OS
+.idea/
+.vscode/
+.DS_Store
+*.log
