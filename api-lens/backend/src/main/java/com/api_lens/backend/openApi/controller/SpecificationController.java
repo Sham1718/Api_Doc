@@ -1,5 +1,6 @@
 package com.api_lens.backend.openApi.controller;
 
+import com.api_lens.backend.openApi.dto.SpecificationSummaryDto;
 import com.api_lens.backend.openApi.service.SpecificationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,11 +20,12 @@ public class SpecificationController {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadOpenApiDoc(@RequestParam("file")MultipartFile file) throws IOException {
+    public ResponseEntity<?> uploadOpenApiDoc(@RequestParam("file")MultipartFile file)
+            throws IOException {
         if (file.isEmpty()){
             return ResponseEntity.badRequest().body("Empty file");
         }
-        service.uploadDoc(file);
-        return ResponseEntity.ok("Document Uploaded");
+//        return service.uploadDoc(file);
+        return ResponseEntity.ok(service.uploadDoc(file));
     }
 }
