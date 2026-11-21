@@ -10,8 +10,10 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class OpenApiStore {
     ConcurrentHashMap<String,SpecificationDto> store =new ConcurrentHashMap<>();
-    public SpecificationSummaryDto storeDoc(SpecificationDto file) throws IOException {
+    public SpecificationSummaryDto storeDoc(SpecificationDto file) {
       store.put(file.getId(), file);
-      return new SpecificationSummaryDto(file.getFileName(), file.getTitle(), file.getStatus(),file.getUploadAt());
+      System.out.println(file.getRawContent());
+      return new SpecificationSummaryDto(file.getId(),file.getFileName(),file.getApiVersion(), file.getTitle(),file.getPathCount(),
+              file.getStatus(),file.getUploadAt());
     }
 }

@@ -10,8 +10,11 @@ import java.time.Instant;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SpecificationSummaryDto {
+    private String id;
     private String fileName;
+    private String openAPiVersion;
     private String title;
+    private int pathCount;
     private SpecStatus status;
-    private Instant uploadAt;
+    private Instant uploadedAt;
 }
